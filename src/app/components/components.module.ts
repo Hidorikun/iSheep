@@ -5,8 +5,6 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { LoginComponent } from '../auth/login/login.component';
-import { ToolbarComponent } from '../components/toolbar/toolbar.component';
 import { MaterialModule } from '../material-module';
 
 @NgModule({
@@ -19,8 +17,6 @@ import { MaterialModule } from '../material-module';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    LoginComponent,
-    ToolbarComponent
   ],
   exports: [
     FooterComponent,
