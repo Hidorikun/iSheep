@@ -24,6 +24,8 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
+import { FormPostComponent } from './company/form-post/form-post.component';
+import { PostComponent } from './company/post/post.component';
 
 @NgModule({
   imports: [
@@ -42,7 +44,6 @@ import { environment } from '../environments/environment';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

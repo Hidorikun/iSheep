@@ -20,6 +20,9 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+import { PostsComponent } from 'app/company/posts/posts.component';
+import { PostComponent } from 'app/company/post/post.component';
+import { FormPostComponent } from 'app/company/form-post/form-post.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -36,12 +39,15 @@ import {
   declarations: [
     DashboardComponent,
     UserProfileComponent,
+    PostsComponent,
     TableListComponent,
     TypographyComponent,
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    PostComponent,
+    FormPostComponent
   ]
 })
 
