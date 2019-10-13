@@ -23,12 +23,16 @@ import {
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { MaterialModule } from './material-module';
 
 @NgModule({
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     BrowserAnimationsModule,
+    MaterialModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
@@ -41,8 +45,7 @@ import { environment } from '../environments/environment';
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-
+    AdminLayoutComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
