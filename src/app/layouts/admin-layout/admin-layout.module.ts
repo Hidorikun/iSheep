@@ -20,6 +20,7 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+import {InternshipComponent} from '../../internship/internship.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -35,6 +36,7 @@ import {
   ],
   declarations: [
     DashboardComponent,
+    InternshipComponent,
     UserProfileComponent,
     TableListComponent,
     TypographyComponent,
