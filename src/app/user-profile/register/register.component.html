@@ -1,0 +1,115 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6" style="float:none;margin:auto;">
+                <div class="card">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title">Register</h4>
+                    <p class="card-category">Click the login button if you already have an account</p>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <mat-form-field>
+                            <mat-label>User Type</mat-label>
+                            <mat-select [(value)]="userType" required>
+                                <mat-option value="student">Student</mat-option>
+                                <mat-option value="university">University</mat-option>
+                                <mat-option value="company">Company</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field  class="example-full-width">
+                                    <input [(ngModel)]="username" [ngModelOptions]="{standalone: true}" matInput placeholder="Username" required>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field  class="example-full-width">
+                                    <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" matInput placeholder="Email address" type="email" required>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field  class="example-full-width">
+                                    <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" matInput placeholder="Password" type="password" required>
+                                </mat-form-field>
+
+                                {{password}}
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field  class="example-full-width">
+                                    <input [(ngModel)]="secondPassword" [ngModelOptions]="{standalone: true}" matInput placeholder="Repeat Password" type="password" required>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div *ngIf='isStudent()' class="row">
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                    <input [(ngModel)]="firstName" [ngModelOptions]="{standalone: true}" matInput placeholder="Fist Name" type="text">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                    <input [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}" matInput placeholder="Last Name" type="text">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div *ngIf='isCompany()' class="row">
+                            <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                    <input [(ngModel)]="companyName" [ngModelOptions]="{standalone: true}" matInput placeholder="Company Name" type="text">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div *ngIf='isUniversity()' class="row">
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                    <input [(ngModel)]="universityName" [ngModelOptions]="{standalone: true}" matInput placeholder="University Name" type="text">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field  class="example-full-width">
+                                    <input [(ngModel)]="facultyName" [ngModelOptions]="{standalone: true}" matInput placeholder="Faculty Name" type="text">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div *ngIf='!isStudent()' class="row">
+                            <div class="col-md-12">
+                                <mat-form-field  class="example-full-width">
+                                    <input [(ngModel)]="address" [ngModelOptions]="{standalone: true}" matInput placeholder="Adress" type="text">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <mat-form-field  class="example-full-width">
+                                    <input [(ngModel)]="city" [ngModelOptions]="{standalone: true}" matInput placeholder="City" type="text">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <mat-form-field  class="example-full-width">
+                                    <input [(ngModel)]="country" [ngModelOptions]="{standalone: true}" matInput placeholder="Country" type="text">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <mat-form-field  class="example-full-width">
+                                    <input [(ngModel)]="postalCode" [ngModelOptions]="{standalone: true}" matInput placeholder="Postal Code" type="text">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <button mat-raised-button (click)='register()' class="btn btn-danger pull-right">Register</button>
+                        <button mat-raised-button routerLink='/login' class="btn btn-danger pull-right">Login</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

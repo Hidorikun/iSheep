@@ -11,6 +11,9 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { RegisterComponent } from '../../user-profile/register/register.component';
+import { LoginComponent } from '../../user-profile/login/login.component';
+import { AuthService } from '../../services/auth.service';
 
 import {
   MatButtonModule,
@@ -39,12 +42,15 @@ import {InternshipComponent} from '../../internship/internship.component';
     InternshipComponent,
     UserProfileComponent,
     TableListComponent,
+    RegisterComponent,
+    LoginComponent,
     TypographyComponent,
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-  ]
+  ],
+   providers: [AuthService],
 })
 
 export class AdminLayoutModule {}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FirebaseCrudService} from '../firebase-crud/firebase-crud.service';
+import {FirebaseCrudService} from '../services/firebase-crud.service';
 import {element} from 'protractor';
+import {Internship} from '../model/internship';
 
 @Component({
   selector: 'app-internship',

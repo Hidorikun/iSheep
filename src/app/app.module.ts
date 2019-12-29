@@ -26,11 +26,14 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { InternshipComponent } from './internship/internship.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
