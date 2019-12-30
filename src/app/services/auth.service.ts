@@ -21,9 +21,10 @@ export class AuthService {
   doLogin(email: string, password: string){
     return new Promise<any>((resolve, reject) => {
       firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(res => {
-        resolve(res);
-      }, err => reject(err));
+      .then(
+        res => { resolve(res); },
+        err => reject(err)
+      );
     })
   }
 

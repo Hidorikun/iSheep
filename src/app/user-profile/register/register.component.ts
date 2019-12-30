@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +24,10 @@ export class RegisterComponent implements OnInit {
   postalCode= '';
   companyName= '';
 
-  constructor(public authService: AuthService){}
+   constructor(
+      public authService: AuthService,
+      private notificationService: NotificationService
+   ){}
 
   ngOnInit() {
   }
@@ -45,6 +49,12 @@ export class RegisterComponent implements OnInit {
     console.log(this.email);
     console.log(this.password);
 
-    this.authService.doRegister(this.email, this.password);
+    this.authService.doRegister(this.email, this.password).then(
+        userCredentials => {
+            this.notificationService.showSuccessNotification('Successfully registered!', 'bottom', 'right');
+            userCredentials.user.updateProfile({displayName: this.userType});
+        },
+        err => this.notificationService.showErrorNotification(err, 'top', 'center')
+    )
   }
 }

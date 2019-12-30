@@ -19,7 +19,7 @@ export class InternshipComponent implements OnInit {
         return {
           id: e.payload.key,
           title: e.payload.toJSON()['title'],
-          company: e.payload.toJSON['company']
+          company: e.payload.toJSON()['company']
         } as Internship;
       })
     });
