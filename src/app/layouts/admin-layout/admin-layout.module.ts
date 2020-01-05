@@ -15,6 +15,7 @@ import { RegisterComponent } from '../../user-profile/register/register.componen
 import { LoginComponent } from '../../user-profile/login/login.component';
 import { AuthService } from '../../services/auth.service';
 import { NotificationService } from '../../services/notification.service';
+import { AuthGuard } from '../../guards/auth.guard';
 
 import {
   MatButtonModule,
@@ -50,8 +51,9 @@ import {InternshipComponent} from '../../internship/internship.component';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+
   ],
-   providers: [AuthService, NotificationService],
+   providers: [AuthService, NotificationService, AuthGuard],
 })
 
 export class AdminLayoutModule {}

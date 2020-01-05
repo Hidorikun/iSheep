@@ -11,12 +11,13 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import {InternshipComponent} from '../../internship/internship.component';
 import { RegisterComponent } from '../../user-profile/register/register.component';
 import { LoginComponent } from '../../user-profile/login/login.component';
+import { AuthGuard } from '../../guards/auth.guard';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'internships',      component: InternshipComponent },
     { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'table-list',     component: TableListComponent },
+    { path: 'table-list',     component: TableListComponent,  canActivate: [AuthGuard]},
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },

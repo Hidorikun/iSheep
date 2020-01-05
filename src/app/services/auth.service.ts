@@ -7,6 +7,8 @@ import * as firebase from 'firebase/app';
 })
 export class AuthService {
 
+  public authenticated = false;
+
   constructor(public afAuth: AngularFireAuth){}
 
   doRegister(email: string, password: string){
@@ -22,8 +24,8 @@ export class AuthService {
     return new Promise<any>((resolve, reject) => {
       firebase.auth().signInWithEmailAndPassword(email, password)
       .then(
-        res => { resolve(res); },
-        err => reject(err)
+        res => { resolve(res); this.authenticated = true },
+        err => { reject(err); this.authenticated = false }
       );
     })
   }
@@ -31,4 +33,5 @@ export class AuthService {
   getUser(): any {
     return this.afAuth.user;
   }
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -11,6 +12,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
     { path: '/internships', title: 'Internships',  icon: '../../../assets/img/internship.png', class: '' },
     { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
+    { path: '/login', title: 'Login/Register',  icon:'person', class: '' },
     { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
     { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
     { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
@@ -27,10 +29,15 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.menuItems = ROUTES.filter(menuItem => {
+        console.log(menuItem.path)
+       // if (menuItem.path === '/login' && this.authService.authenticated) return false;
+        //if (menuItem.path === '/profile' && !this.authService.authenticated) return false;
+        return true;
+    });
   }
   isMobileMenu() {
       if ($(window).width() > 991) {
