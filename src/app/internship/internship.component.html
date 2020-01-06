@@ -1,22 +1,8 @@
 <div class="main-content">
   <div class="col-xs-12">
-    <form [formGroup]="internshipForm" (ngSubmit)="newInternship(internshipForm.value)">
-      <div>
-        <label for="title">
-          Title
-        </label>
-        <input id="title" type="text" formControlName="title">
-      </div>
 
-      <div>
-        <label for="description">
-          Description
-        </label>
-        <input id="description" type="text" formControlName="description">
-      </div>
+    <button (click)="openDialog()">Add Internship</button>
 
-      <button class="button" type="submit">Add Internship</button>
-    </form>
     <div class="card">
       <div class="card-header card-header-info">
         <h4 class="card-title">Internships</h4>

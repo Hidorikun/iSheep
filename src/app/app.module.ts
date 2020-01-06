@@ -28,6 +28,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { InternshipComponent } from './internship/internship.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from './services/auth.service';
+import { NewInternshipDialogComponent } from './dialogs/new-internship-dialog/new-internship-dialog.component';
 
 @NgModule({
   imports: [

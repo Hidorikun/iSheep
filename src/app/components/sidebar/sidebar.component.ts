@@ -33,7 +33,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => {
-        console.log(menuItem.path)
+        // console.log(menuItem.path)
        // if (menuItem.path === '/login' && this.authService.authenticated) return false;
         //if (menuItem.path === '/profile' && !this.authService.authenticated) return false;
         return true;

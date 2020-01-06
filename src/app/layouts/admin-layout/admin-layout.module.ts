@@ -20,12 +20,14 @@ import { AuthGuard } from '../../guards/auth.guard';
 import {
   MatButtonModule,
   MatInputModule,
+  MatDialogModule,
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
 import {InternshipComponent} from '../../internship/internship.component';
+import {NewInternshipDialogComponent} from '../../dialogs/new-internship-dialog/new-internship-dialog.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -38,6 +40,7 @@ import {InternshipComponent} from '../../internship/internship.component';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    MatDialogModule
   ],
   declarations: [
     DashboardComponent,
@@ -51,7 +54,10 @@ import {InternshipComponent} from '../../internship/internship.component';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-
+    NewInternshipDialogComponent
+  ],
+  entryComponents: [
+    NewInternshipDialogComponent
   ],
    providers: [AuthService, NotificationService, AuthGuard],
 })

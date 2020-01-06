@@ -3,6 +3,11 @@ import {EmploymentType} from './employment_type';
 import {JobFunction} from './job_fucntion';
 import {FirebaseCrudService} from '../services/firebase-crud.service';
 
+export interface InternshipInterface {
+    title: string;
+    description: string;
+}
+
 export class Internship {
     public id?: string;
     public title?: string;
