@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseCrudService} from '../services/firebase-crud.service';
 import {element} from 'protractor';
+import { FormBuilder } from '@angular/forms';
 import {Internship} from '../model/internship';
 
 @Component({
@@ -11,7 +12,13 @@ import {Internship} from '../model/internship';
 })
 export class InternshipComponent implements OnInit {
   internships: Internship[];
-  constructor(private firebaseService: FirebaseCrudService<Internship>) { }
+  internshipForm;
+  constructor(private firebaseService: FirebaseCrudService<Internship>, private formBuilder: FormBuilder) {
+    this.internshipForm = this.formBuilder.group({
+      title: '',
+      description: ''
+    });
+  }
 
   ngOnInit() {
     this.firebaseService.getList('internships').snapshotChanges().subscribe( data => {
@@ -19,10 +26,17 @@ export class InternshipComponent implements OnInit {
         return {
           id: e.payload.key,
           title: e.payload.toJSON()['title'],
-          company: e.payload.toJSON()['company']
+          description: e.payload.toJSON()['description']
         } as Internship;
       })
     });
   }
 
+  newInternship(customerData) {
+    // Process checkout data here
+    console.warn('Your order has been submitted', customerData);
+    console.log(customerData.title + ' ' + customerData.description);
+    this.firebaseService.addEntity('internships', new Internship({title: customerData.title, description: customerData.description}))
+    this.internshipForm.reset();
+  }
 }
