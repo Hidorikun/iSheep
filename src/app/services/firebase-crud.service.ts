@@ -5,19 +5,17 @@ import {AngularFireDatabase, AngularFireList, PathReference} from '@angular/fire
   providedIn: 'root'
 })
 export class FirebaseCrudService<T> {
-  listFirebase: AngularFireList<T>;
   constructor(private firebaseDb: AngularFireDatabase) { }
 
   getList(collection: PathReference) {
-    this.listFirebase = this.firebaseDb.list(collection);
-    return this.listFirebase;
+    return this.firebaseDb.list(collection);
   }
 
-  addEntity(colcollection: PathReference, entity: T) {
-    this.listFirebase.push(entity)
+  addEntity(collection: PathReference, entity: T) : string{
+    return this.firebaseDb.list(collection).push(entity).key
   }
 
-  removeEntity(colcollection: PathReference, $key: string) {
-    this.listFirebase.remove($key)
+  removeEntity(collection: PathReference, $key: string) {
+    this.firebaseDb.list(collection).remove($key)
   }
 }

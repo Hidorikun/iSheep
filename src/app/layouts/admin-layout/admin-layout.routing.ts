@@ -12,6 +12,7 @@ import {InternshipComponent} from '../../internship/internship.component';
 import { RegisterComponent } from '../../user-profile/register/register.component';
 import { LoginComponent } from '../../user-profile/login/login.component';
 import { AuthGuard } from '../../guards/auth.guard';
+import {StudentsListComponent} from "../../students/students-list/students-list.component";
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -25,4 +26,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'register',       component: RegisterComponent },
     { path: 'login',          component: LoginComponent },
+    { path: 'students',       component: StudentsListComponent },
 ];

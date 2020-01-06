@@ -28,6 +28,7 @@ import {
 } from '@angular/material';
 import {InternshipComponent} from '../../internship/internship.component';
 import {NewInternshipDialogComponent} from '../../dialogs/new-internship-dialog/new-internship-dialog.component';
+import {StudentsListComponent} from "../../students/students-list/students-list.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -54,7 +55,8 @@ import {NewInternshipDialogComponent} from '../../dialogs/new-internship-dialog/
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-    NewInternshipDialogComponent
+    NewInternshipDialogComponent,
+    StudentsListComponent
   ],
   entryComponents: [
     NewInternshipDialogComponent

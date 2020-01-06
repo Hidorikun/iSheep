@@ -50,6 +50,7 @@ export class InternshipComponent implements OnInit {
   }
 
   openDialog(): void {
+    this.firebaseService.addEntity('internships', new Internship({title: "id test",id: "ter"}));
     const dialogRef = this.dialog.open(NewInternshipDialogComponent, {
       height: '400px',
       width: '600px',
