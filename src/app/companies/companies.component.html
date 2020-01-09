@@ -1,0 +1,19 @@
+<div class="main-content">
+  <div class="col-xs-12">
+
+    <div class="card">
+      <div class="card-header card-header-info">
+        <h4 class="card-title">Companies</h4>
+      </div>
+      <div class="card-body">
+        <div class="card" *ngFor="let company of companies" >
+        <a routerLink="/companies/{{company.id}}">
+        
+            <h5 class="card-title">{{company.name}}</h5>
+          </a>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
+

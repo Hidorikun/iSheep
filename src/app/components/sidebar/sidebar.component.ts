@@ -20,8 +20,9 @@ export const ROUTES: RouteInfo[] = [
     { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
     { path: '/students', title: 'Students',  icon: '../../../assets/img/internship_gri.png', class: '' },
+    { path: '/companies', title: 'Companies', icon: 'work',class: ''}
 ];
-
+ 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
