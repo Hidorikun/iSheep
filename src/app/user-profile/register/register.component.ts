@@ -55,22 +55,25 @@ export class RegisterComponent implements OnInit {
     this.authService.doRegister(this.email, this.password).then(
         userCredentials => {
             this.notificationService.showSuccessNotification('Successfully registered!', 'bottom', 'right');
-            let key: string;
+            debugger;
+            let key = userCredentials.user.toJSON()['uid'];
+
             if (this.userType == 'student') {
-                key = this.addStudent();
+                this.addStudent(key);
             } else if(this.userType == 'company') {
-                key = this.addCompany();
+                this.addCompany(key);
             } else if(this.userType == 'university') {
-                key =this.addUniversity();
+                this.addUniversity(key);
             }
-            userCredentials.user.updateProfile({displayName: key});
+
+            userCredentials.user.updateProfile({displayName: this.userType});
         },
         err => this.notificationService.showErrorNotification(err, 'top', 'center')
     )
   }
 
-    private addStudent(): string{
-        return this.studentService.addEntity('students', {
+    private addStudent(key: string) {
+        return this.studentService.addEntityWithId('students', key, {
             username: this.username,
             email: this.email,
             firstName: this.firstName,
@@ -78,8 +81,8 @@ export class RegisterComponent implements OnInit {
         } as Student)
     }
 
-    private addCompany(): string  {
-        return this.companyService.addEntity('companies', {
+    private addCompany(key: string) {
+        return this.companyService.addEntityWithId('companies', key, {
             name: this.companyName,
             email: this.email,
             username: this.username,
@@ -90,8 +93,8 @@ export class RegisterComponent implements OnInit {
         } as Company)
     }
 
-    private addUniversity(): string{
-        return this.universityService.addEntity('universities', {
+    private addUniversity(key: string) {
+        return this.universityService.addEntityWithId('universities', key, {
                 username: this.username,
                 address: this.address,
                 email: this.email,

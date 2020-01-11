@@ -22,9 +22,8 @@ export class CompanyComponent implements OnInit {
 
   getCompany(): void {
     let id = this.route.snapshot.params['id'];
-    this.firebaseService.getCompany(id)
-      .subscribe(e=> this.company =e); 
-        
-  } 
+    this.firebaseService.getEntityById('companies', id)
+      .subscribe(e=> this.company =e);
+  }
 }
  
