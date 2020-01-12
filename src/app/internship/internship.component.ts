@@ -6,6 +6,7 @@ import {Internship} from '../model/internship';
 import {Router, RouterStateSnapshot} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {NewInternshipDialogComponent} from '../dialogs/new-internship-dialog/new-internship-dialog.component';
+import {Company} from '../model/company';
 
 @Component({
   selector: 'app-internship',
@@ -51,9 +52,9 @@ export class InternshipComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(NewInternshipDialogComponent, {
-      height: '400px',
-      width: '600px',
-      data : new Internship({})
+      height: '80%',
+      width: '2000px',
+      data : new Internship({company: new Company('Apple')})
     });
 
     dialogRef.afterClosed().subscribe(result => {
