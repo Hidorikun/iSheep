@@ -7,13 +7,17 @@
       </div>
       <div class="card-body">
         <div class="card" *ngFor="let company of companies" >
-        <a routerLink="/companies/{{company.id}}">
-        
-            <h5 class="card-title">{{company.name}}</h5>
-          </a>
+          <div routerLink="/companies/{{company.id}}">
+            <a > 
+              <h5 class="card-title">{{company.name}}</h5>
+            </a>
+          </div>
+          <button mat-raised-button color="primary" (click)="deleteCompany(company.id)">Delete</button>
+
         </div>
-      </div>
+      </div>  
     </div>  
   </div>
 </div>
 
+ 

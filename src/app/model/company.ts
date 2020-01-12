@@ -7,8 +7,4 @@ export class Company {
     city: string;
     postalCode: string;
     country: string;
-
-    constructor(name: string) {
-        this.name = name;
-    }
 }

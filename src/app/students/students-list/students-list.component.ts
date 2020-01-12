@@ -14,7 +14,11 @@ export class StudentsListComponent implements OnInit {
       private firebaseService: FirebaseCrudService<Student>
   ) { }
 
-  ngOnInit() {
+  deleteStudent(id: string){
+    this.firebaseService.removeEntity('students',id);
+  }
+
+  ngOnInit() { 
     this.firebaseService.getList('students').snapshotChanges().subscribe( data => {
       this.students = data.map(e => {
 

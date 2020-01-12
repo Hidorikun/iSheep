@@ -31,6 +31,8 @@ import {NewInternshipDialogComponent} from '../../dialogs/new-internship-dialog/
 import {StudentsListComponent} from "../../students/students-list/students-list.component";
 import {CompaniesComponent} from "../../companies/companies.component";
 import {CompanyComponent} from "../../company/company.component";
+import { InternshipDetailsComponent } from 'app/internship-details/internship-details.component';
+import { StudentDetailsComponent } from 'app/student-details/student-details.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -60,7 +62,9 @@ import {CompanyComponent} from "../../company/company.component";
     NewInternshipDialogComponent,
     StudentsListComponent,
     CompaniesComponent,
-    CompanyComponent
+    CompanyComponent,
+    InternshipDetailsComponent,
+    StudentDetailsComponent
   ],
   entryComponents: [
     NewInternshipDialogComponent
@@ -70,6 +74,3 @@ import {CompanyComponent} from "../../company/company.component";
 
 export class AdminLayoutModule {}
 
-const routes: Routes = [
-  { path: 'detail/:id', component: CompanyComponent },
-];

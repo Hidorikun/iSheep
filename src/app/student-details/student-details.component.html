@@ -1,0 +1,17 @@
+<div *ngIf="student">
+  <div class="main-content">
+    <div class="col-xs-12">
+
+      <div class="card">
+        <div class="card-header card-header-info">
+          <h4 class="card-title">{{student.firstName | uppercase}} Details</h4>
+        </div>
+        <div class="card-body">
+          <div><span>Name: </span>{{student.firstName}} {{student.lastName}}</div>
+          <div><span>email: </span>{{student.email}}</div>
+          <div><span>username: </span>{{student.username}}</div>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>

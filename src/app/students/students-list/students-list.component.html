@@ -7,11 +7,13 @@
       </div>
       <div class="card-body">
         <div class="card" *ngFor="let student of students">
-          <a href="#" class="card-body internship">
+          <a routerLink="/students/{{student.id}}">
             <h5 class="card-title">{{student.firstName}} {{student.lastName}}</h5>
           </a>
+          <button mat-raised-button color="primary" (click)="deleteStudent(student.id)">Delete</button>
+
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 </div>

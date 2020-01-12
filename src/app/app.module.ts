@@ -29,6 +29,8 @@ import { InternshipComponent } from './internship/internship.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from './services/auth.service';
 import { NewInternshipDialogComponent } from './dialogs/new-internship-dialog/new-internship-dialog.component';
+import { InternshipDetailsComponent } from './internship-details/internship-details.component';
+import { StudentDetailsComponent } from './student-details/student-details.component';
 
 @NgModule({
   imports: [
@@ -49,7 +51,6 @@ import { NewInternshipDialogComponent } from './dialogs/new-internship-dialog/ne
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

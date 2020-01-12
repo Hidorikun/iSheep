@@ -9,9 +9,21 @@ import { FirebaseCrudService } from "../services/firebase-crud.service";
 })
 export class CompaniesComponent implements OnInit {
   companies: Company[];
+  selectedCompany: Company;
   constructor(
     private firebaseService: FirebaseCrudService<Company>
   ) { }
+
+  onSelect(company: Company): void {
+    this.selectedCompany = company;
+  }
+
+  deleteCompany(id: string){
+    console.log(id)
+    this.firebaseService.removeEntity('companies',id);
+  }
+
+ 
 
   ngOnInit() {
     this.firebaseService.getList('companies').snapshotChanges().subscribe( data => {

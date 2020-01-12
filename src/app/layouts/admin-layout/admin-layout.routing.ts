@@ -15,6 +15,8 @@ import { AuthGuard } from '../../guards/auth.guard';
 import {StudentsListComponent} from "../../students/students-list/students-list.component";
 import {CompaniesComponent} from "../../companies/companies.component";
 import { CompanyComponent } from 'app/company/company.component';
+import { InternshipDetailsComponent } from 'app/internship-details/internship-details.component';
+import { StudentDetailsComponent } from 'app/student-details/student-details.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -30,7 +32,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'login',          component: LoginComponent },
     { path: 'students',       component: StudentsListComponent },
     { path: 'companies',      component: CompaniesComponent},
-    { path: 'companies/:id', component: CompanyComponent }
-      
+    { path: 'companies/:id', component: CompanyComponent },
+    { path: 'internships/:id', component: InternshipDetailsComponent }, 
+    { path: 'students/:id', component: StudentDetailsComponent }
+
 ];
  

@@ -41,6 +41,10 @@ export class InternshipComponent implements OnInit {
     });
   }
 
+  deleteInternship(id: string){
+    this.firebaseService.removeEntity('internships',id);
+  }
+
   newInternship(customerData) {
     // Process checkout data here
     console.warn('Your order has been submitted', customerData);
@@ -55,7 +59,7 @@ export class InternshipComponent implements OnInit {
     const dialogRef = this.dialog.open(NewInternshipDialogComponent, {
       height: '80%',
       width: '2000px',
-      data : new Internship({company: new Company('Apple')})
+      data : new Internship({company: new Company()})
     });
 
     dialogRef.afterClosed().subscribe(result => {

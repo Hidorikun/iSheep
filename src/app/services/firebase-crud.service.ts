@@ -25,7 +25,8 @@ export class FirebaseCrudService<T> {
   removeEntity(collection: PathReference, key: string) {
     this.firebaseDb.list(collection).remove(key);
   }
-  getEntityById(collection: PathReference, id: string): Observable<any> {
-    return this.firebaseDb.object(collection + '/' + id).valueChanges()
+
+  getEntity(collection: PathReference,id: string):Observable<any> {
+    return this.firebaseDb.object(collection+'/' + id).valueChanges();
   }
-}
+} 

@@ -27,11 +27,11 @@ export class UserProfileComponent implements OnInit {
         user => {
             this.userType = user.displayName;
           if (this.isUniversity()){
-            this.userSource = this.universityService.getEntityById('universities', user.uid);
+            this.userSource = this.universityService.getEntity('universities', user.uid);
           } else if (this.isStudent()) {
-            this.userSource = this.studentService.getEntityById('students', user.uid);
+            this.userSource = this.studentService.getEntity('students', user.uid);
           } else if (this.isCompany()) {
-            this.userSource = this.companyService.getEntityById('companies', user.uid);
+            this.userSource = this.companyService.getEntity('companies', user.uid);
           }
 
           this.userSource.subscribe(user => this.user = user);
