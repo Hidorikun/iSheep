@@ -1,8 +1,7 @@
 export class Student {
-    id: string;
+    id?: string;
     username: string;
-    password: string;
-    address: string;
+    email: string;
     firstName: string;
     lastName: string;
  }

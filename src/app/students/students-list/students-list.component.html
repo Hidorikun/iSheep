@@ -1,0 +1,17 @@
+<div class="main-content">
+  <div class="col-xs-12">
+
+    <div class="card">
+      <div class="card-header card-header-info">
+        <h4 class="card-title">Students</h4>
+      </div>
+      <div class="card-body">
+        <div class="card" *ngFor="let student of students">
+          <a href="#" class="card-body internship">
+            <h5 class="card-title">{{student.firstName}} {{student.lastName}}</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

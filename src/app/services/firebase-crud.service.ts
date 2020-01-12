@@ -1,23 +1,31 @@
 import { Injectable } from '@angular/core';
-import {AngularFireDatabase, AngularFireList, PathReference} from '@angular/fire/database';
+import {AngularFireDatabase, PathReference} from '@angular/fire/database';
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class FirebaseCrudService<T> {
-  listFirebase: AngularFireList<T>;
-  constructor(private firebaseDb: AngularFireDatabase) { }
+  constructor(private firebaseDb: AngularFireDatabase) {}
 
   getList(collection: PathReference) {
-    this.listFirebase = this.firebaseDb.list(collection);
-    return this.listFirebase;
+    return this.firebaseDb.list(collection);
   }
 
-  addEntity(colcollection: PathReference, entity: T) {
-    this.listFirebase.push(entity)
+  addEntityWithId(collection: PathReference, id: any, entity: T) {
+    this.firebaseDb.list(collection).set(id, entity)
   }
 
-  removeEntity(colcollection: PathReference, $key: string) {
-    this.listFirebase.remove($key)
+  addEntity(collection: PathReference, entity: T) : string{
+    return this.firebaseDb.list(collection).push(entity).key
+  }
+
+  removeEntity(collection: PathReference, key: string) {
+    this.firebaseDb.list(collection).remove(key);
+  }
+  getEntityById(collection: PathReference, id: string): Observable<any> {
+    return this.firebaseDb.object(collection + '/' + id).valueChanges()
   }
 }

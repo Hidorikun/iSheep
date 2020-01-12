@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
@@ -28,6 +28,9 @@ import {
 } from '@angular/material';
 import {InternshipComponent} from '../../internship/internship.component';
 import {NewInternshipDialogComponent} from '../../dialogs/new-internship-dialog/new-internship-dialog.component';
+import {StudentsListComponent} from "../../students/students-list/students-list.component";
+import {CompaniesComponent} from "../../companies/companies.component";
+import {CompanyComponent} from "../../company/company.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -54,7 +57,10 @@ import {NewInternshipDialogComponent} from '../../dialogs/new-internship-dialog/
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-    NewInternshipDialogComponent
+    NewInternshipDialogComponent,
+    StudentsListComponent,
+    CompaniesComponent,
+    CompanyComponent
   ],
   entryComponents: [
     NewInternshipDialogComponent
@@ -63,3 +69,7 @@ import {NewInternshipDialogComponent} from '../../dialogs/new-internship-dialog/
 })
 
 export class AdminLayoutModule {}
+
+const routes: Routes = [
+  { path: 'detail/:id', component: CompanyComponent },
+];

@@ -1,8 +1,8 @@
 export class University {
-    id: string;
+    id?: string;
     username: string;
-    password: string;
     address: string;
+    email: string;
     city: string;
     postalCode: string;
     country: string;

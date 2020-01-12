@@ -1,83 +1,99 @@
 <div class="main-content">
   <div class="container-fluid">
       <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-8" style="float:none;margin:auto;">
               <div class="card">
                   <div class="card-header card-header-danger">
-                      <h4 class="card-title">Edit Profile</h4>
-                      <p class="card-category">Complete your profile</p>
+                      <h4 class="card-title">User Profile</h4>
+                      <p class="card-category">Here you can edit your user details</p>
                   </div>
-                  <div class="card-body">
+                  <div *ngIf='user' class="card-body">
                       <form>
                           <div class="row">
-                              <div class="col-md-5">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Company (disabled)" disabled>
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-3">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Username">
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Email address" type="email">
-                                  </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
                               <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Fist Name" type="text">
-                                </mat-form-field>
+                                  <mat-form-field  class="example-full-width">
+                                      <input [value]="user.username"  matInput placeholder="Username" disabled>
+                                  </mat-form-field>
                               </div>
                               <div class="col-md-6">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Last Name" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-12">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Adress" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="City" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Country" type="text">
-                                </mat-form-field>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Postal Code" type="text">
-                                </mat-form-field>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-12">
-                                <label>About Me</label>
-                                <mat-form-field class="example-full-width">
-                                   <textarea matInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
-                                 </mat-form-field>
-                                  <!-- <div class="form-group">
 
-                                      <div class="form-group">
-                                          <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                          <textarea class="form-control" rows="5"></textarea>
-                                      </div>
-                                  </div> -->
+                                  <mat-form-field  class="example-full-width">
+                                      <input  [value]="user.email" matInput placeholder="Email address" type="email" disabled>
+                                  </mat-form-field>
                               </div>
                           </div>
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+
+<!--                          <div class="row">-->
+<!--                              <div class="col-md-6">-->
+<!--                                  <mat-form-field  class="example-full-width">-->
+<!--                                      <input [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" matInput placeholder="Old Password" type="password" required>-->
+<!--                                  </mat-form-field>-->
+<!--                              </div>-->
+<!--                              <div class="col-md-6">-->
+<!--                                  <mat-form-field  class="example-full-width">-->
+<!--                                      <input [(ngModel)]="u" [ngModelOptions]="{standalone: true}" matInput placeholder="Repeat Password" type="password" required>-->
+<!--                                  </mat-form-field>-->
+<!--                              </div>-->
+<!--                          </div>-->
+
+                          <div *ngIf='isCompany()' class="row">
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                      <input [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}" matInput placeholder="Fist Name" type="text" required>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                      <input [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}" matInput placeholder="Last Name" type="text" required>
+                                  </mat-form-field>
+                              </div>
+                          </div>
+
+                          <div *ngIf='isCompany()' class="row">
+                              <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                      <input [(ngModel)]="user.companyName" [ngModelOptions]="{standalone: true}" matInput placeholder="Company Name" type="text" required>
+                                  </mat-form-field>
+                              </div>
+                          </div>
+
+                          <div *ngIf='isUniversity()' class="row">
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                      <input [(ngModel)]="user.universityName" [ngModelOptions]="{standalone: true}" matInput placeholder="University Name" type="text" required>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                  <mat-form-field  class="example-full-width">
+                                      <input [(ngModel)]="user.facultyName" [ngModelOptions]="{standalone: true}" matInput placeholder="Faculty Name" type="text" required>
+                                  </mat-form-field>
+                              </div>
+                          </div>
+
+                          <div *ngIf='!isStudent()' class="row">
+                              <div class="col-md-12">
+                                  <mat-form-field  class="example-full-width">
+                                      <input [(ngModel)]="user.address" [ngModelOptions]="{standalone: true}" matInput placeholder="Adress" type="text" required>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                  <mat-form-field  class="example-full-width">
+                                      <input [(ngModel)]="user.city" [ngModelOptions]="{standalone: true}" matInput placeholder="City" type="text" required>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                  <mat-form-field  class="example-full-width">
+                                      <input [(ngModel)]="user.country" [ngModelOptions]="{standalone: true}" matInput placeholder="Country" type="text" required>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                  <mat-form-field  class="example-full-width">
+                                      <input [(ngModel)]="user.postalCode" [ngModelOptions]="{standalone: true}" matInput placeholder="Postal Code" type="text" required>
+                                  </mat-form-field>
+                              </div>
+                          </div>
+
+                          <button mat-raised-button (click)='save()' class="btn btn-danger pull-right">Save</button>
                           <div class="clearfix"></div>
                       </form>
                   </div>
